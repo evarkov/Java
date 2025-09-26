@@ -1,16 +1,4 @@
-**/.idea
-**.iml
-**/target
-**/.txt
-
-# Mac
-.DS_Store
-  
-# Maven
-**/log/
-**/target/
-
-#Gradle
-**/build/
-**/gradle/
-**/.gradle/
+*.idea
+*.iml
+/target/
+*.txt
