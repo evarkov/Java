@@ -82,7 +82,11 @@ public class Main {
     }
     private static void menu2(){
         for (int i = 0; i < 12;i++){
-            System.out.println("Месяц :" + (i+1));
+            System.out.println("Месяц :" + (i+1)+ " - шагов: "+Track.getMonthStepCount(i));
+            System.out.println("Максимальное число шагов :" + Track.getMonthStepMax(i));
+            System.out.println("Среднее число шагов :" + Track.getMonthStepAvg(i));
+            System.out.println("Пройдено :" + (double)Track.getMonthStepCount(i)*0.75+ " метров");
+            System.out.println("Потрачено каллорий :" + (double)Track.getMonthStepCount(i)*50/1000+ " ккал");
             for(int day = 0;day< Track.getMonthDayCount(i);day++){
                 System.out.print(" "+(day+1)+" день :" + Track.getDayStep(i,day)+";");
             }

@@ -60,4 +60,7 @@ public class stepTracker {
     public void saveMonth(Integer aMonth){
         monthSteps.get(aMonth).saveDays(aMonth + 1 + ".txt");
     }
+    public Integer getMonthStepCount(Integer aMonth) {return  monthSteps.get(aMonth).getMonthStepCount();}
+    public Integer getMonthStepMax(Integer aMonth) {return  monthSteps.get(aMonth).getMonthStepMax();}
+    public Integer getMonthStepAvg(Integer aMonth) {return  monthSteps.get(aMonth).getMonthStepAvg();}
 }

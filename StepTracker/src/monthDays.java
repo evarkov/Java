@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class monthDays {
@@ -48,9 +49,11 @@ public class monthDays {
     public void loadDays(String fileName,int aDayInMonth){
         Scanner scanner = null;
         try {
+            Random random = new Random();
+
             days = new ArrayList<>();
             for (int i = 0; i < aDayInMonth; i++) {
-                days.add(0);}
+                days.add(random.nextInt(10000));}
             Path p = Paths.get(fileName);
             scanner = new Scanner(p);
             String line;
@@ -69,5 +72,20 @@ public class monthDays {
             }
         }
 
+    }
+    public Integer getMonthStepCount(){
+        Integer sum = 0;
+        for (Integer day: days){ sum += day;}
+        return sum;
+    }
+    public Integer getMonthStepMax(){
+        Integer max = 0;
+        for (Integer day: days){
+            max = day>max?day:max;}
+        return max;
+    }
+    public Integer getMonthStepAvg(){
+        Integer sum = getMonthStepCount();
+        return sum/days.size();
     }
 }
