@@ -1,9 +1,10 @@
+package mytesthome;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 public class monthDays {
@@ -49,14 +50,14 @@ public class monthDays {
     public void loadDays(String fileName,int aDayInMonth){
         Scanner scanner = null;
         try {
-            Random random = new Random();
 
             days = new ArrayList<>();
             for (int i = 0; i < aDayInMonth; i++) {
-                days.add(random.nextInt(10000));}
+                days.add(0);}
             Path p = Paths.get(fileName);
             scanner = new Scanner(p);
             String line;
+            String[] lines;
             int lineNo = 0;
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();

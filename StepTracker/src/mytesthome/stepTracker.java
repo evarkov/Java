@@ -1,3 +1,5 @@
+package mytesthome;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -15,6 +17,7 @@ public class stepTracker {
             monthSteps.put(i,new monthDays(i));
         }
     }
+
     public void setStepGoal(Integer aNewStepGoal){
         stepGoal = aNewStepGoal;
     }

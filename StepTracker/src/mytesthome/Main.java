@@ -1,3 +1,5 @@
+package mytesthome;
+
 import java.util.Scanner;
 
 public class Main {
@@ -81,16 +83,21 @@ public class Main {
         Track.saveMonth(aMonth-1);
     }
     private static void menu2(){
-        for (int i = 0; i < 12;i++){
-            System.out.println("Месяц :" + (i+1)+ " - шагов: "+Track.getMonthStepCount(i));
-            System.out.println("Максимальное число шагов :" + Track.getMonthStepMax(i));
-            System.out.println("Среднее число шагов :" + Track.getMonthStepAvg(i));
-            System.out.println("Пройдено :" + (double)Track.getMonthStepCount(i)*0.75+ " метров");
-            System.out.println("Потрачено каллорий :" + (double)Track.getMonthStepCount(i)*50/1000+ " ккал");
-            for(int day = 0;day< Track.getMonthDayCount(i);day++){
-                System.out.print(" "+(day+1)+" день :" + Track.getDayStep(i,day)+";");
-            }
-            System.out.println();
+        System.out.print("Введите номер месяца от 1 до 12:");
+        Scanner in = new Scanner(System.in);
+        int aMonth = in.nextInt();
+        if (aMonth<1||aMonth>12) {
+            System.out.println("Месяц должен быть от 1 до 12");
+            return;
+        }
+            System.out.println("Месяц :" + (aMonth)+ " - шагов: "+Track.getMonthStepCount(aMonth-1));
+            System.out.println("Максимальное число шагов :" + Track.getMonthStepMax(aMonth-1));
+            System.out.println("Среднее число шагов :" + Track.getMonthStepAvg(aMonth-1));
+            System.out.println("Пройдено :" + (double)Track.getMonthStepCount(aMonth-1)*0.75+ " метров");
+            System.out.println("Потрачено каллорий :" + (double)Track.getMonthStepCount(aMonth-1)*50/1000+ " ккал");
+            for(int day = 0;day< Track.getMonthDayCount(aMonth-1);day++){
+                System.out.print(" "+(day+1)+" день :" + Track.getDayStep(aMonth-1,day)+";");
+
 
         }
     }
