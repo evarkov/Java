@@ -1,13 +1,13 @@
 package ru.myteam.taskmanager;
 
 public class Task {
-    private int taskID;
-    private String taskName;
-    private String description;
-    private String status;
-    protected int taskType;
+    private final int taskID;
+    private final String taskName;
+    private final String description;
+    private final TaskStatus status;
+    protected TaskType taskType;
 
-    public int getTaskType() {
+    public TaskType getTaskType() {
         return taskType;
     }
 
@@ -23,16 +23,16 @@ public class Task {
         return description;
     }
 
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public Task(int aTaskID, String aTaskName, String aDescription, String aStatus){
+    public Task(int aTaskID, String aTaskName, String aDescription, TaskStatus aStatus){
         taskID = aTaskID;
         taskName = aTaskName;
         description = aDescription;
         status = aStatus;
-        taskType = 0;
+        taskType = TaskType.TASK;
     }
 
     protected String getToString(){
@@ -52,11 +52,11 @@ public class Task {
 
     public String getTypeTaskName(){
          switch (this.taskType){
-            case 0:
+             case TASK:
                 return "Задача";
-            case 1:
+             case SUB_TASK:
                 return "Подзадача";
-            case 2:
+            case EPIC:
                 return "Эпик";
             default:
                 return "";
